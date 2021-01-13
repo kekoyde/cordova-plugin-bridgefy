@@ -1,6 +1,6 @@
 <p align="center"><a href="https://bridgefy.me" target="_blank" rel="noopener noreferrer"><img width="400" src="https://admin.bridgefy.me/assets/img/bridgefy-logo.svg" alt="Vue logo"></a></p>
 
-![Maven metadata URL](https://img.shields.io/maven-metadata/v?metadataUrl=http%3A%2F%2F104.196.228.98%3A8081%2Fartifactory%2Flibs-release-local%2Fcom%2Fbridgefy%2Fandroid-sdk%2Fmaven-metadata.xml) ![Cocoapods](https://img.shields.io/cocoapods/v/BFTransmitter) ![GitHub last commit](https://img.shields.io/github/last-commit/bridgefy/cordova-plugin-bridgefy) ![GitHub issues](https://img.shields.io/github/issues-raw/bridgefy/cordova-plugin-bridgefy?style=plastic)
+![Maven metadata URL](https://img.shields.io/maven-metadata/v?metadataUrl=http%3A%2F%2F104.196.228.98%3A8081%2Fartifactory%2Flibs-release-local%2Fcom%2Fbridgefy%2Fandroid-sdk%2Fmaven-metadata.xml) ![Cocoapods](https://img.shields.io/cocoapods/v/BFTransmitter) ![GitHub package.json version](https://img.shields.io/github/package-json/v/bridgefy/cordova-plugin-bridgefy) ![GitHub last commit](https://img.shields.io/github/last-commit/bridgefy/cordova-plugin-bridgefy) ![GitHub issues](https://img.shields.io/github/issues-raw/bridgefy/cordova-plugin-bridgefy?style=plastic)
 
 # cordova-plugin-bridgefy
 
