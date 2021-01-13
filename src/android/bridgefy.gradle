@@ -1,0 +1,15 @@
+// Allow plugins to declare Maven dependencies via build-extras.gradle.
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "http://maven.bridgefy.com/artifactory/libs-release-local"
+            artifactUrls = ["http://jcenter.bintray.com/"]
+        }
+    }
+}
+
+dependencies {
+    implementation('com.bridgefy:android-sdk:2.0.+@aar') { transitive = true }
+}

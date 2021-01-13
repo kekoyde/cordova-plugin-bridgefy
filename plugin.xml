@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-bridgfey"
+    version="1.0.0">
+    <name>Bridgefy</name>
+    <description>Cordova Bridgefy Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,bridgefy</keywords>
+    <repo>https://bitbucket.org/bridgefy/cordova-plugin-bridgefy.git</repo>
+    <issue>https://issues.apache.org/jira/browse/CB/component/12320648</issue>
+
+    <js-module src="www/bridgefy.js" name="bridgefy">
+        <clobbers target="bridgefy" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <!-- Bridgefy SDK 1.1.24 -->
+        <framework src="src/android/bridgefy.gradle" custom="true" type="gradleReference" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Bridgefy" >
+                <param name="android-package" value="org.apache.cordova.bridgefy.Bridgefy"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/Bridgefy.java" target-dir="src/org/apache/cordova/bridgefy" />
+        <source-file src="src/android/framework/BridgefySDK.java" target-dir="src/org/apache/cordova/bridgefy/framework" />
+        <source-file src="src/android/framework/Utils.java" target-dir="src/org/apache/cordova/bridgefy/framework" />
+        <source-file src="src/android/framework/device/DeviceProvider.java" target-dir="src/org/apache/cordova/bridgefy/framework/device" />
+        <source-file src="src/android/framework/transmitter/MessageProvider.java" target-dir="src/org/apache/cordova/bridgefy/framework/transmitter" />
+        <source-file src="src/android/framework/mvp/Presenter.java" target-dir="src/org/apache/cordova/bridgefy/framework/mvp" />
+        <source-file src="src/android/framework/mvp/Provider.java" target-dir="src/org/apache/cordova/bridgefy/framework/mvp" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Bridgefy">
+                <param name="ios-package" value="BridgefySDK"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <config-file parent="com.bridgefy.SDKLicense" platform="ios" target="*-Info.plist">
+            <string>Bridgefy Preloaded license here</string>
+        </config-file>
+        <config-file parent="NSBluetoothAlwaysUsageDescription" platform="ios" target="*-Info.plist">
+            <string>String value explaining to the user how the app uses this data.</string>
+        </config-file>
+        <config-file parent="NSBluetoothPeripheralUsageDescription" platform="ios" target="*-Info.plist">
+            <string>This is the message that is displayed to the user when asking for Bluetooth permission for the app.</string>
+        </config-file>
+        <config-file parent="UIBackgroundModes" platform="ios" target="*-Info.plist">
+            <array><string>bluetooth-central</string></array>
+            <array><string>bluetooth-peripheral</string></array>
+            <array><string>processing</string></array>
+        </config-file>
+
+        <header-file src="src/ios/BridgefySDK.h" />
+        <source-file src="src/ios/BridgefySDK.m" />
+        <!-- <framework src="src/ios/frameworks/BFTransmitter.framework" type="embed" custom="true"/> -->
+        <podspec>
+            <config>
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="BFTransmitter"/>
+            </pods>
+        </podspec>
+
+    </platform>
+
+</plugin>
